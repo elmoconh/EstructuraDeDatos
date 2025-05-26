@@ -13,6 +13,9 @@ public class LinkedListMaster {
 
         //Imprimimos la lista
         Node nodo = lista.pop();
+
+
+
         while (nodo != null) {
             nodo.showContent();
             nodo = lista.pop();
