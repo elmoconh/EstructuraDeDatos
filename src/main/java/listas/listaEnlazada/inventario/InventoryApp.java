@@ -40,7 +40,7 @@ public class InventoryApp {
                     deleteProduct();
                     break;
                 case 4:
-                    updateProductPrize();
+                    updateProductPrice();
                     break;
                 case 5:
                     printProducts();
@@ -71,10 +71,16 @@ public class InventoryApp {
         inventory.addProduct(ID);
     }
 
-    private void updateProductPrize() {
+    private void updateProductPrice() {
+        System.out.println("ID del Producto: ");
+        int ID = sc.nextInt();
+        inventory.updateProductPrice(ID);
     }
 
     private void deleteProduct() {
+        System.out.println("ID del Producto: ");
+        int ID = sc.nextInt();
+        inventory.deleteProduct(ID);
     }
 
     private void printProducts() {

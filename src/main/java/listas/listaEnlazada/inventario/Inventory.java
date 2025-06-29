@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Inventory {
-    private List<Product> products;
+    private final List<Product> products;
 
     public Inventory() {
         // Inicializamos la lista enlazada de productos
@@ -18,15 +18,12 @@ public class Inventory {
         Product product = new Product(id, name, existencia, precio);
 
         // Agregamos el producto a la lista enlazada
-       boolean success= products.add(product);
-        if (success) {
-            System.out.println("Producto agregado exitosamente.");
-        } else {
-            System.out.println("Error al agregar el producto.");
-        }
+        boolean success = products.add(product);
+        System.out.println("Producto agregado exitosamente.");
+
     }
 
-    public void printProducts(){
+    public void printProducts() {
         // Verificamos si la lista de productos está vacía
         if (products.isEmpty()) {
             System.out.println("No hay productos en el inventario.");
@@ -35,7 +32,7 @@ public class Inventory {
         products.forEach(System.out::println);
     }
 
-    public void addProduct(int id){
+    public void addProduct(int id) {
         int productIndex = products.indexOf(new Product(id));
         Product product = products.get(productIndex);
         if (product != null) {
@@ -49,7 +46,22 @@ public class Inventory {
         }
     }
 
-    public void deleteProduct(int id){
+    public void updateProductPrice(int id) {
+        int productIndex = products.indexOf(new Product(id));
+        Product product = products.get(productIndex);
+        if (product != null) {
+            System.out.println("Ingrese el nuevo precio: ");
+            Scanner sc = new Scanner(System.in);
+            double nuevoPrecio = sc.nextDouble();
+            product.setPrecio(nuevoPrecio);
+            System.out.println("Producto actualizado: " + product);
+        } else {
+            System.out.println("No se encontró el producto con ID: " + id);
+        }
+
+    }
+
+    public void deleteProduct(int id) {
         boolean success = products.removeIf(product -> product.getId() == id);
         if (success) {
             System.out.println("Producto eliminado exitosamente.");
