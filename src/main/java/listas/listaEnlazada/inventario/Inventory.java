@@ -19,7 +19,7 @@ public class Inventory {
 
         // Agregamos el producto a la lista enlazada
         boolean success = products.add(product);
-        System.out.println("Producto agregado exitosamente.");
+        System.out.println("Producto agregado exitosamente." + success);
 
     }
 
